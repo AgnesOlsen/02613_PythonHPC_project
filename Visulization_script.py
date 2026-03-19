@@ -31,17 +31,14 @@ for i, bid in enumerate(building_ids):
     all_interior_mask[i] = interior_mask
 
 
-# Create figure and two subplots
-fig, axs = plt.subplots(2, 1)
+fig, axs = plt.subplots(2, 4, figsize=(16, 6), constrained_layout=True)
 
-# First subplot
-axs[0].imshow(all_u0[0])
-axs[0].set_title("First building, initial conditions")
-
-# Second subplot
-axs[1].imshow(all_interior_mask[0])
-axs[1].set_title("First building, interior points mask")
-
-# Adjust layout
-plt.tight_layout()
-plt.savefig("Firstbuildingplot.png")
+for i in range(4):
+    axs[0, i].imshow(all_u0[i])
+    axs[0, i].set_title(f"Building {building_ids[i]}\nInitial Conditions", fontsize=10, pad=6)
+    axs[0, i].axis("off")
+    axs[1, i].imshow(all_interior_mask[i])
+    axs[1, i].set_title(f"Building {building_ids[i]}\nInterior Points", fontsize=10, pad=6)
+    axs[1, i].axis("off")
+fig.suptitle("Visualization of First Four Buildings", fontsize=14)
+plt.savefig("Buildingplot.png", dpi=300, bbox_inches="tight")
