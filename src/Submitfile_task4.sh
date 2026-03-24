@@ -13,7 +13,8 @@
 # Initialize Python environment
 source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate 02613
-cd .. 
-cd src
-kernprof -l Task4.py 1
-python -m line_profiler -rmt "Task4.py.lprof" 
+
+#kernprof -l Task4.py 1
+kernprof -l -v Task4.py 1 > Task4_lineprofile.txt
+#python -m line_profiler -rmt Task4.py.lprof 
+python -m cProfile -s cumulative Task4.py 1 > task4_cprofile.txt
