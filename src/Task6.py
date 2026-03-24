@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import sys
 import os
 from os.path import join
+from time import time
 
 
 print("starting paralellized script")
@@ -86,37 +87,16 @@ if __name__ == '__main__':
 
     if len(sys.argv) < 2:
         N = 1
-        num_processes = 1
     else:
         N = int(sys.argv[1])
-        num_processes = int(sys.argv[2])
     building_ids = building_ids[:N]
 
-   
-
-    loaded_buildings = parallelized_computations(building_ids, num_processes, LOAD_DIR)
-    print("parallelized_computations Finished")
-
-    all_u0, all_interior_mask, all_u = loaded_buildings
-
-    # Print summary statistics in CSV format
-    stat_keys = ['mean_temp', 'std_temp', 'pct_above_18', 'pct_below_15']
-    print('building_id, ' + ', '.join(stat_keys))  # CSV header
-    for bid, u, interior_mask in zip(building_ids, all_u, all_interior_mask):
-        stats = summary_stats(u, interior_mask)
-        print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
-
-    
-    fig, axs = plt.subplots(1, 4, figsize=(16, 6), constrained_layout=True)
-
-    for i in range(4):
-        axs[i].imshow(all_u[i])
-        axs[i].set_title(f"Building {building_ids[i]}\nSimulation Results", fontsize=10, pad=6)
-        axs[i].axis("off")
-    fig.suptitle("Visualization of First Four Buildings", fontsize=14)
-    path_save = os.path.join('figures',"Task5.png")
-    plt.savefig(path_save,dpi=300, bbox_inches="tight")
-
-
-    
-
+    num_processes = [1,2,4,8, 16]
+    time_list = []
+    for num in num_processes:
+        time_start = time()
+        loaded_buildings = parallelized_computations(building_ids, num_processes, LOAD_DIR)
+        all_u0, all_interior_mask, all_u = loaded_buildings
+        time_end = time()
+        time_list.append([num, time_end - time_start])
+    np.save("stats/dynamic_time_20.npy", time_list)
