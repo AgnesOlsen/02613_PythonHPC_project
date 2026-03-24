@@ -1,0 +1,29 @@
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 14.01233878811275, 6.367431059312565, 30.941014791508444, 55.542295034537624
+10009, 11.000135812436373, 5.811144379826625, 16.6712734948236, 74.9723590310584
+10014, 14.744169941950119, 7.037733284673848, 38.26367541377415, 52.80837116508215
+10019, 14.735524480624482, 7.030325006703675, 38.14915412864569, 52.92926826787113
+Wrote profile results to Task4.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 64.1981 s
+File: Task4.py
+Function: jacobi at line 14
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    14                                           @profile
+    15                                           def jacobi(u, interior_mask, max_iter, atol=1e-6):
+    16         4       4357.1   1089.3      0.0      u = np.copy(u)
+    17                                           
+    18     24930      32452.1      1.3      0.1      for i in range(max_iter):
+    19                                                   # Compute average of left, right, up and down neighbors, see eq. (1)
+    20     24930   37899520.5   1520.2     59.0          u_new = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
+    21     24930    6104146.2    244.9      9.5          u_new_interior = u_new[interior_mask]
+    22     24930   13536809.6    543.0     21.1          delta = np.abs(u[1:-1, 1:-1][interior_mask] - u_new_interior).max()
+    23     24930    6550895.6    262.8     10.2          u[1:-1, 1:-1][interior_mask] = u_new_interior
+    24                                           
+    25     24930      69871.3      2.8      0.1          if delta < atol:
+    26         4          3.7      0.9      0.0              break
+    27         4          1.2      0.3      0.0      return u
+
