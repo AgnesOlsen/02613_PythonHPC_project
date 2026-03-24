@@ -15,6 +15,6 @@ source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate 02613
 
 #kernprof -l Task4.py 1
-kernprof -l -v Task4.py 1 > Task4_lineprofile.txt
+kernprof -l -v Task4.py 4 > Task4_lineprofile4.txt
 #python -m line_profiler -rmt Task4.py.lprof 
-python -m cProfile -s cumulative Task4.py 1 > task4_cprofile.txt
+python -m cProfile -s cumulative Task4.py 4 > task4_cprofile4.txt

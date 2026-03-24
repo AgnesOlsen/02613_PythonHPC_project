@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613/lib/python3.11/cProfile.py", line 191, in <module>
+    main()
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613/lib/python3.11/cProfile.py", line 180, in main
+    runctx(code, globs, None, options.outfile, options.sort)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613/lib/python3.11/cProfile.py", line 20, in runctx
+    return _pyprofile._Utils(Profile).runctx(statement, globals, locals,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613/lib/python3.11/profile.py", line 63, in runctx
+    prof.runctx(statement, globals, locals)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613/lib/python3.11/cProfile.py", line 101, in runctx
+    exec(cmd, globals, locals)
+  File "Task4.py", line 14, in <module>
+    @profile
+     ^^^^^^^
+NameError: name 'profile' is not defined
