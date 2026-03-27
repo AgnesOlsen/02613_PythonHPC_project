@@ -91,11 +91,11 @@ if __name__ == '__main__':
         N = int(sys.argv[1])
     building_ids = building_ids[:N]
 
-    num_processes = [1,2,4,8, 16]
+    num_processes = [1,2,4,8,16]
     time_list = []
     for num in num_processes:
         time_start = time()
-        loaded_buildings = parallelized_computations(building_ids, num_processes, LOAD_DIR)
+        loaded_buildings = parallelized_computations(building_ids, num, LOAD_DIR)
         all_u0, all_interior_mask, all_u = loaded_buildings
         time_end = time()
         time_list.append([num, time_end - time_start])
