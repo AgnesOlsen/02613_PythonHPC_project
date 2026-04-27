@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 import os
+from time import time
 from os.path import join
 
 
@@ -91,26 +92,33 @@ if __name__ == '__main__':
 
     if len(sys.argv) < 2:
         N = 1
-        num_processes = 1
     else:
         N = int(sys.argv[1])
-        num_processes = int(sys.argv[2])
     building_ids = building_ids[:N]
 
-   
+    num_processes = [1, 2, 4, 6, 8, 10, 12, 14, 16]
+    time_list = []
 
-    loaded_buildings = parallelized_computations(building_ids, num_processes, LOAD_DIR)
-    print("parallelized_computations Finished")
+    for num in num_processes: 
+        time_start= time()
+        loaded_buildings = parallelized_computations(building_ids, num, LOAD_DIR)
+        print("parallelized_computations Finished")
 
-    all_u0, all_interior_mask, all_u = loaded_buildings
+        all_u0, all_interior_mask, all_u = loaded_buildings
 
-    # Print summary statistics in CSV format
-    stat_keys = ['mean_temp', 'std_temp', 'pct_above_18', 'pct_below_15']
-    print('building_id, ' + ', '.join(stat_keys))  # CSV header
-    for bid, u, interior_mask in zip(building_ids, all_u, all_interior_mask):
-        stats = summary_stats(u, interior_mask)
-        print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
+        # Print summary statistics in CSV format
+        stat_keys = ['mean_temp', 'std_temp', 'pct_above_18', 'pct_below_15']
+        print('building_id, ' + ', '.join(stat_keys))  # CSV header
+        for bid, u, interior_mask in zip(building_ids, all_u, all_interior_mask):
+            stats = summary_stats(u, interior_mask)
+            print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
+        time_end = time()
+        time_list.append([num, time_end-time_start])
 
+    np.save("stats/static_time_50_1to16.npy", time_list)
+
+
+    
     
     fig, axs = plt.subplots(1, 4, figsize=(16, 6), constrained_layout=True)
 
