@@ -6,7 +6,7 @@ import os
 # RUN from. src file
 # From errorfile Tast Task2_29094101
 buildings = np.array([10,12,14,16,18,20])
-time_real = np.array([92.631,124.263,158.257,175.721,201.489,233.251 ])
+time_real = np.array([107.576,156.158,200.937,194.291,211.352,249.335 ])
 
 #Degree 1 = linear fit
 slope, intercept = np.polyfit(buildings, time_real, 1)
@@ -24,7 +24,7 @@ plt.grid(True, linestyle='--', alpha=0.6)
 
 # 5. Save the image
 # You can change the filename here. 'dpi' makes it look sharper.
-figure_name='linear_regression_5points.png'
+figure_name='linear_regression_5points_evn2026.png'
 save_path = os.path.join('..', 'figures', figure_name)
 plt.savefig(save_path)
 

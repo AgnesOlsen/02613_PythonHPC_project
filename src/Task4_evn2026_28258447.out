@@ -1,0 +1,98 @@
+No GPU on this node, CUDA module not loaded
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 14.01233878811275, 6.367431059312565, 30.941014791508444, 55.542295034537624
+10009, 11.000135812436373, 5.811144379826625, 16.6712734948236, 74.9723590310584
+10014, 14.744169941950119, 7.037733284673848, 38.26367541377415, 52.80837116508215
+10019, 14.735524480624482, 7.030325006703675, 38.14915412864569, 52.92926826787113
+Wrote profile results to 'Task4.py.lprof'
+Inspect results with:
+python -m line_profiler -rmt Task4.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 76.2353 s
+File: Task4.py
+Function: jacobi at line 14
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    14                                           @profile
+    15                                           def jacobi(u, interior_mask, max_iter, atol=1e-6):
+    16         4       3312.0    828.0      0.0      u = np.copy(u)
+    17                                           
+    18     24930      39959.7      1.6      0.1      for i in range(max_iter):
+    19                                                   # Compute average of left, right, up and down neighbors, see eq. (1)
+    20     24930   44680814.8   1792.3     58.6          u_new = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
+    21     24930    7118395.7    285.5      9.3          u_new_interior = u_new[interior_mask]
+    22     24930   16620284.5    666.7     21.8          delta = np.abs(u[1:-1, 1:-1][interior_mask] - u_new_interior).max()
+    23     24930    7677498.9    308.0     10.1          u[1:-1, 1:-1][interior_mask] = u_new_interior
+    24                                           
+    25     24930      94972.2      3.8      0.1          if delta < atol:
+    26         4          5.4      1.3      0.0              break
+    27         4         12.4      3.1      0.0      return u
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28258447: <Task4_evn2026> in cluster <dcc> Done
+
+Job <Task4_evn2026> was submitted from host <n-62-9-41> by user <s224393> in cluster <dcc> at Wed Apr 22 16:12:04 2026
+Job was executed on host(s) <n-62-11-67>, in queue <hpc>, as user <s224393> in cluster <dcc> at Wed Apr 22 16:12:06 2026
+</zhome/d9/a/186845> was used as the home directory.
+</zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/src> was used as the working directory.
+Started at Wed Apr 22 16:12:06 2026
+Terminated at Wed Apr 22 16:13:25 2026
+Results reported at Wed Apr 22 16:13:25 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task4_evn2026
+#BSUB -q hpc
+#BSUB -W 4
+#BSUB -R "rusage[mem=1GB]"
+#BSUB -R "select[model==XeonGold6226R]"
+#BSUB -n 1
+#BSUB -R "span[hosts=1]"
+#BSUB -o Task4_evn2026_%J.out
+#BSUB -e Task4_evn2026_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+#kernprof -l Task4.py 1
+#kernprof -l -v Task4.py 4 > Task4_lineprofile4_evn2026.txt
+#python -m line_profiler -rmt Task4.py.lprof 
+#python -m cProfile -s cumulative Task4.py 4 > task4_cprofile4_evn2026.txt
+
+kernprof -l Task4.py 4
+python -m line_profiler Task4.py.lprof
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   77.82 sec.
+    Max Memory :                                 53 MB
+    Average Memory :                             50.67 MB
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               971.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   79 sec.
+    Turnaround time :                            81 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <Task4_evn2026_28258447.err> for stderr output of this job.
+
