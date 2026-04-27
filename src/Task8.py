@@ -4,6 +4,7 @@ import numpy as np
 from numba import jit
 from numba import cuda
 import matplotlib.pyplot as plt
+import time
 
 def load_data(load_dir, bid):
     SIZE = 512
@@ -48,10 +49,32 @@ def summary_stats(u, interior_mask):
         'pct_below_15': pct_below_15,
     }
 
+#### Have to comopile kernel 1 time before timing - so we need to load building ID's etc to test. 
+
+LOAD_DIR = '/dtu/projects/02613_2025/data/modified_swiss_dwellings/'
+with open(join(LOAD_DIR, 'building_ids.txt'), 'r') as f:
+    building_ids = f.read().splitlines()
+building_ids = building_ids[:1]
+
+all_u0 = np.empty((1, 514, 514))
+all_interior_mask = np.empty((1, 512, 512), dtype='bool')
+for i, bid in enumerate(building_ids):
+    u0, interior_mask = load_data(LOAD_DIR, bid)
+    all_u0[i] = u0
+    all_interior_mask[i] = interior_mask
+
+# Run jacobi iterations for each floor plan
+ITER = 5000
+
+all_u = np.empty_like(all_u0)
+for i, (u0, interior_mask) in enumerate(zip(all_u0, all_interior_mask)):
+    u = jacobi_helper(u0, interior_mask, ITER)
+    all_u[i] = u
 
 
 if __name__ == '__main__':
-    # Load data
+    # Load data - we also time this to accurately compare to reference. 
+    start_time = time.time()
     LOAD_DIR = '/dtu/projects/02613_2025/data/modified_swiss_dwellings/'
     with open(join(LOAD_DIR, 'building_ids.txt'), 'r') as f:
         building_ids = f.read().splitlines()
@@ -71,8 +94,7 @@ if __name__ == '__main__':
         all_interior_mask[i] = interior_mask
 
     # Run jacobi iterations for each floor plan
-    ITER = 10_000
-    ABS_TOL = 1e-4
+    ITER = 5000
 
     all_u = np.empty_like(all_u0)
     for i, (u0, interior_mask) in enumerate(zip(all_u0, all_interior_mask)):
@@ -80,16 +102,20 @@ if __name__ == '__main__':
         print(u)
         all_u[i] = u
 
+    
+
     # Print summary statistics in CSV format
     stat_keys = ['mean_temp', 'std_temp', 'pct_above_18', 'pct_below_15']
     print('building_id, ' + ', '.join(stat_keys))  # CSV header
     for bid, u, interior_mask in zip(building_ids, all_u, all_interior_mask):
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
+    
+    print(f"Time for {N} is {time.time()-start_time}")
 
     fig, axs = plt.subplots(1, N, figsize=(16, 6), constrained_layout=True)
 
-    for i in range(N):
+    for i in range(4):
         axs[i].imshow(all_u[i])
         axs[i].set_title(f"Building {building_ids[i]}\nSimulation Results", fontsize=10, pad=6)
         axs[i].axis("off")
