@@ -1,0 +1,62 @@
+No GPU on this node, CUDA module not loaded
+starting paralellized script
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28305196: <Task6_evn2026> in cluster <dcc> Done
+
+Job <Task6_evn2026> was submitted from host <n-62-30-1> by user <s224393> in cluster <dcc> at Mon Apr 27 15:04:36 2026
+Job was executed on host(s) <16*n-62-12-2>, in queue <hpc>, as user <s224393> in cluster <dcc> at Mon Apr 27 16:20:22 2026
+</zhome/d9/a/186845> was used as the home directory.
+</zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project> was used as the working directory.
+Started at Mon Apr 27 16:20:22 2026
+Terminated at Mon Apr 27 16:42:02 2026
+Results reported at Mon Apr 27 16:42:02 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task6_evn2026
+#BSUB -q hpc
+#BSUB -W 60
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -R "select[model==XeonGold6226R]"
+#BSUB -n 16
+#BSUB -R "span[hosts=1]"
+#BSUB -o outputfiles/Task6_evn2026_%J.out
+#BSUB -e outputfiles/Task6_evn2026_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+python src/Task6.py 50
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   3852.67 sec.
+    Max Memory :                                 1093 MB
+    Average Memory :                             534.09 MB
+    Total Requested Memory :                     3200.00 MB
+    Delta Memory :                               2107.00 MB
+    Max Swap :                                   -
+    Max Processes :                              20
+    Max Threads :                                24
+    Run time :                                   1300 sec.
+    Turnaround time :                            5846 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <outputfiles/Task6_evn2026_28305196.err> for stderr output of this job.
+
