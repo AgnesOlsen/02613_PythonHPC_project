@@ -4,7 +4,9 @@ import os
 numpy_load  = np.array([(1,2),(2,4),(3,8)]) #Erstat med load af npy-fil
 # Load data from Task5
 processes = numpy_load[:,0]
-speedup = numpy_load[:,1]
+times = numpy_load[:,1]
+speedup = times[0]/times 
+print(speedup) # evt fjern dette skal bare lige se den regner rigtigt. 
 
 # Ahmdals law - we play with fraction F.
 F = 0.8 # Ændre for at finde den rigtige
