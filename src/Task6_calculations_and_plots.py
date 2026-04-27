@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 # Load data from Task5
-numpy_load  = np.load("/zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/stats/dynamic_time_20_evn26.npy")
+numpy_load  = np.load("/zhome/4f/c/186668/Desktop/02613_HPC/02613_PythonHPC_project/stats/dynamic_time_20_evn26.npy")
 processes = numpy_load[:,0]
 times = numpy_load[:,1]
 speedup = times[0]/times 
@@ -26,7 +26,7 @@ plt.title('Speedup vs Workers')
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.6)
 
-figure_name='Task_6_speedupplot_evn26.png' # ændre navn for kun speedup plot
+figure_name='Task_6_speedupplot_32_evn26.png' # ændre navn for kun speedup plot
 save_path = os.path.join('..', 'figures', figure_name)
 plt.savefig(save_path)
 

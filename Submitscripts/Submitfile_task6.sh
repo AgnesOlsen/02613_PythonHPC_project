@@ -2,10 +2,10 @@
 
 #BSUB -J Task6_evn2026
 #BSUB -q hpc
-#BSUB -W 60
-#BSUB -R "rusage[mem=200MB]"
+#BSUB -W 120
+#BSUB -R "rusage[mem=100MB]"
 #BSUB -R "select[model==XeonGold6226R]"
-#BSUB -n 16
+#BSUB -n 32
 #BSUB -R "span[hosts=1]"
 #BSUB -o outputfiles/Task6_evn2026_%J.out
 #BSUB -e outputfiles/Task6_evn2026_%J.err
