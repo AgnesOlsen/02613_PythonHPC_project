@@ -91,7 +91,7 @@ if __name__ == '__main__':
         N = int(sys.argv[1])
     building_ids = building_ids[:N]
 
-    num_processes = [1,2,4,8,16]
+    num_processes = [1,4,8,12,16,20,24,28,32]
     time_list = []
     for num in num_processes:
         time_start = time()
