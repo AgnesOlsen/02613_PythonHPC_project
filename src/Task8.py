@@ -87,9 +87,9 @@ if __name__ == '__main__':
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
 
-    fig, axs = plt.subplots(1, 4, figsize=(16, 6), constrained_layout=True)
+    fig, axs = plt.subplots(1, N, figsize=(16, 6), constrained_layout=True)
 
-    for i in range(4):
+    for i in range(N):
         axs[i].imshow(all_u[i])
         axs[i].set_title(f"Building {building_ids[i]}\nSimulation Results", fontsize=10, pad=6)
         axs[i].axis("off")
