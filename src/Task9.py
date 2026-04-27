@@ -1,7 +1,7 @@
 from os.path import join
 import sys
 import cupy as cp
-import numpy as cp
+
 
 
 def load_data(load_dir, bid):

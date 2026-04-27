@@ -6,7 +6,7 @@ import os
 # RUN from. src file
 # From errorfile Tast Task2_29094101
 buildings = np.array([10,12,14,16,18,20])
-time_real = np.array([67.200, 91.479, 117.472, 128.186, 150.632, 169.970])
+time_real = np.array([29.209, 27.642, 34.123, 37.989, 43.338, 49.831])
 
 
 #Degree 1 = linear fit
