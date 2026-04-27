@@ -1,0 +1,61 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28305644: <Task8> in cluster <dcc> Exited
+
+Job <Task8> was submitted from host <n-62-30-3> by user <s235058> in cluster <dcc> at Mon Apr 27 16:21:10 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s235058> in cluster <dcc> at Mon Apr 27 16:23:52 2026
+</zhome/10/4/206201> was used as the home directory.
+</zhome/10/4/206201/02613PyHPC/02613_PythonHPC_project> was used as the working directory.
+Started at Mon Apr 27 16:23:52 2026
+Terminated at Mon Apr 27 16:25:10 2026
+Results reported at Mon Apr 27 16:25:10 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task8
+#BSUB -q c02613
+#BSUB -W 1
+#BSUB -R "rusage[mem=100MB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -o outputfiles/Task8_%J.out
+#BSUB -e outputfiles/Task8_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+time python src/Task8.py 5
+
+------------------------------------------------------------
+
+TERM_RUNLIMIT: job killed after reaching LSF run time limit.
+Exited with exit code 140.
+
+Resource usage summary:
+
+    CPU time :                                   76.00 sec.
+    Max Memory :                                 136 MB
+    Average Memory :                             134.50 MB
+    Total Requested Memory :                     400.00 MB
+    Delta Memory :                               264.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                10
+    Run time :                                   78 sec.
+    Turnaround time :                            240 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <outputfiles/Task8_28305644.err> for stderr output of this job.
+
