@@ -115,7 +115,7 @@ if __name__ == '__main__':
         time_end = time()
         time_list.append([num, time_end-time_start])
 
-    np.save("stats/static_time_50_1to16.npy", time_list)
+    np.save("stats/static_time_50_1to16_evn26.npy", time_list)
 
 
     

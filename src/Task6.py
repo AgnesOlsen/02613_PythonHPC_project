@@ -99,4 +99,4 @@ if __name__ == '__main__':
         all_u0, all_interior_mask, all_u = loaded_buildings
         time_end = time()
         time_list.append([num, time_end - time_start])
-    np.save("stats/dynamic_time_20.npy", time_list)
+    np.save("stats/dynamic_time_20_evn26.npy", time_list)

@@ -85,5 +85,5 @@ for i in range(4):
     axs[i].set_title(f"Building {building_ids[i]}\nSimulation Results", fontsize=10, pad=6)
     axs[i].axis("off")
 fig.suptitle("Visualization of First Four Buildings", fontsize=14)
-path_save = os.path.join('..','figures',"Task3.png")
+path_save = join('..','figures',"Task3_evn2026.png")
 plt.savefig(path_save,dpi=300, bbox_inches="tight")
