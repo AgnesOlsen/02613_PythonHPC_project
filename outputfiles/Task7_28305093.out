@@ -1,0 +1,86 @@
+No GPU on this node, CUDA module not loaded
+1 image done
+1 image done
+1 image done
+1 image done
+1 image done
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 14.01233878811275, 6.367431059312565, 30.941014791508444, 55.542295034537624
+10009, 11.000135812436373, 5.811144379826625, 16.6712734948236, 74.9723590310584
+10014, 14.744169941950119, 7.037733284673848, 38.26367541377415, 52.80837116508215
+10019, 14.735524480624482, 7.030325006703675, 38.14915412864569, 52.92926826787113
+10029, 10.616037322820358, 6.317331938274926, 18.25563221896085, 74.51301795448481
+total time =  128.40206503868103
+1 image done
+1 image done
+1 image done
+1 image done
+1 image done
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 14.01233878811275, 6.367431059312565, 30.941014791508444, 55.542295034537624
+10009, 11.000135812436373, 5.811144379826625, 16.6712734948236, 74.9723590310584
+10014, 14.744169941950119, 7.037733284673848, 38.26367541377415, 52.80837116508215
+10019, 14.735524480624482, 7.030325006703675, 38.14915412864569, 52.92926826787113
+10029, 10.616037322820358, 6.317331938274926, 18.25563221896085, 74.51301795448481
+total time =  130.62904906272888
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28305093: <Task7> in cluster <dcc> Done
+
+Job <Task7> was submitted from host <n-62-30-3> by user <s235058> in cluster <dcc> at Mon Apr 27 14:45:06 2026
+Job was executed on host(s) <n-62-11-52>, in queue <hpc>, as user <s235058> in cluster <dcc> at Mon Apr 27 14:45:08 2026
+</zhome/10/4/206201> was used as the home directory.
+</zhome/10/4/206201/02613PyHPC/02613_PythonHPC_project> was used as the working directory.
+Started at Mon Apr 27 14:45:08 2026
+Terminated at Mon Apr 27 14:50:11 2026
+Results reported at Mon Apr 27 14:50:11 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task7
+#BSUB -q hpc
+#BSUB -W 5
+#BSUB -R "rusage[mem=10GB]"
+#BSUB -R "select[model==XeonGold6226R]"
+#BSUB -n 1
+#BSUB -R "span[hosts=1]"
+#BSUB -o outputfiles/Task7_%J.out
+#BSUB -e outputfiles/Task7_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613
+
+time python src/Task7.py 5
+time python src/Task7.py 5
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   301.16 sec.
+    Max Memory :                                 125 MB
+    Average Memory :                             121.00 MB
+    Total Requested Memory :                     10240.00 MB
+    Delta Memory :                               10115.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   303 sec.
+    Turnaround time :                            305 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <outputfiles/Task7_28305093.err> for stderr output of this job.
+
