@@ -1,3 +1,5 @@
+Generating '/tmp/nsys-report-68c3.qdstrm'
+[1/1] [0%                          ] prof_data_filetask10_.nsys-rep[1/1] [0%                          ] prof_data_filetask10_.nsys-rep[1/1] [9%                          ] prof_data_filetask10_.nsys-rep[1/1] [10%                         ] prof_data_filetask10_.nsys-rep[1/1] [=======39%                  ] prof_data_filetask10_.nsys-rep[1/1] [========41%                 ] prof_data_filetask10_.nsys-rep[1/1] [========================100%] prof_data_filetask10_.nsys-rep
 Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/nvtxsum.py]... 
 SKIPPED: prof_data_filetask10_.sqlite does not contain NV Tools Extension (NVTX) data.
 
@@ -84,15 +86,15 @@ SKIPPED: prof_data_filetask10_.sqlite does not contain OpenACC event data.
 
 ------------------------------------------------------------
 Sender: LSF System <lsfadmin@hpc.dtu.dk>
-Subject: Job 28308152: <Task10prof1> in cluster <dcc> Exited
+Subject: Job 28310185: <Task10prof1> in cluster <dcc> Exited
 
-Job <Task10prof1> was submitted from host <n-62-27-18> by user <s224353> in cluster <dcc> at Mon Apr 27 22:47:53 2026
-Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s224353> in cluster <dcc> at Mon Apr 27 22:47:55 2026
+Job <Task10prof1> was submitted from host <hpclogin1> by user <s224353> in cluster <dcc> at Tue Apr 28 09:29:50 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s224353> in cluster <dcc> at Tue Apr 28 09:29:54 2026
 </zhome/5f/c/186820> was used as the home directory.
 </zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src> was used as the working directory.
-Started at Mon Apr 27 22:47:55 2026
-Terminated at Mon Apr 27 22:48:03 2026
-Results reported at Mon Apr 27 22:48:03 2026
+Started at Tue Apr 28 09:29:54 2026
+Terminated at Tue Apr 28 09:30:17 2026
+Results reported at Tue Apr 28 09:30:17 2026
 
 Your job looked like:
 
@@ -116,7 +118,6 @@ conda activate 02613_2026
 
 #nsys profile --force-overwrite true -o prof_data_filetask10_ python Task9.py 4
 nsys profile --force-overwrite true --wait=all -o prof_data_filetask10_ python Task9.py 4
-sleep 2
 nsys stats prof_data_filetask10_.nsys-rep 
 
 
@@ -127,16 +128,16 @@ Exited with signal termination: 25.
 
 Resource usage summary:
 
-    CPU time :                                   1.50 sec.
+    CPU time :                                   5.00 sec.
     Max Memory :                                 800 MB
-    Average Memory :                             -
+    Average Memory :                             126.33 MB
     Total Requested Memory :                     800.00 MB
     Delta Memory :                               0.00 MB
     Max Swap :                                   -
-    Max Processes :                              -
-    Max Threads :                                -
-    Run time :                                   8 sec.
-    Turnaround time :                            10 sec.
+    Max Processes :                              5
+    Max Threads :                                21
+    Run time :                                   23 sec.
+    Turnaround time :                            27 sec.
 
 The output (if any) is above this job summary.
 
@@ -144,5 +145,5 @@ The output (if any) is above this job summary.
 
 PS:
 
-Read file <Task10prof1_time_28308152.err> for stderr output of this job.
+Read file <Task10prof1_time_28310185.err> for stderr output of this job.
 

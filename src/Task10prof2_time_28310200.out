@@ -1,0 +1,155 @@
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 0.44650283895699977, 1.8493456566776003, 0.016274275794727133, 99.98372572420527
+10009, 0.28322570107548495, 1.454561187777491, 0.006282038395818675, 99.99371796160418
+10014, 0.35663209218053377, 1.8869378120954208, 0.027483153844587854, 99.97251684615541
+10019, 0.35613828953927223, 1.8814919923922504, 0.024414807580797754, 99.9755851924192
+Generating '/tmp/nsys-report-aa36.qdstrm'
+[1/1] [0%                          ] prof_data_filetask102_.nsys-rep[1/1] [0%                          ] prof_data_filetask102_.nsys-rep[1/1] [=17%                        ] prof_data_filetask102_.nsys-rep[1/1] [======35%                   ] prof_data_filetask102_.nsys-rep[1/1] [========================99% ] prof_data_filetask102_.nsys-rep[1/1] [========================100%] prof_data_filetask102_.nsys-rep[1/1] [========================100%] prof_data_filetask102_.nsys-rep
+Generated:
+    /zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src/prof_data_filetask102_.nsys-rep
+Generating SQLite file prof_data_filetask102_.sqlite from prof_data_filetask102_.nsys-rep
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/nvtxsum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain NV Tools Extension (NVTX) data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/osrtsum.py]... 
+
+ ** OS Runtime Summary (osrtsum):
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)    Med (ns)   Min (ns)  Max (ns)  StdDev (ns)         Name        
+ --------  ---------------  ---------  ----------  ----------  --------  --------  -----------  -------------------
+     74.6        188896013        523    361177.8    318028.0      1305   2179706     152811.2  open64             
+     20.0         50701094          2  25350547.0  25350547.0   2338348  48362746   32544163.9  poll               
+      2.1          5294607        534      9915.0      3661.5      1043    152983      16251.7  read               
+      1.6          3954862          9    439429.1     98077.0      2106   1112843     490181.5  fread              
+      0.5          1317334       1044      1261.8      1100.0      1074    140065       4312.1  fclose             
+      0.3           830551        110      7550.5      5603.0      4267     45463       4703.1  munmap             
+      0.3           822023        248      3314.6      1109.0      1000     20225       3604.0  fgets              
+      0.3           668636          7     95519.4      4210.0      3056    451306     171466.3  fopen64            
+      0.2           429105        127      3378.8      2236.0      1530     23273       2642.4  mmap64             
+      0.1           167574         16     10473.4      5227.0      3835     90604      21413.5  backtrace          
+      0.0            63372          1     63372.0     63372.0     63372     63372          0.0  waitpid            
+      0.0            13063          3      4354.3      2910.0      2314      7839       3032.5  pipe2              
+      0.0             8535          1      8535.0      8535.0      8535      8535          0.0  write              
+      0.0             7088          5      1417.6      1370.0      1011      2168        467.3  sigaction          
+      0.0             4412          1      4412.0      4412.0      4412      4412          0.0  fflush             
+      0.0             3257          1      3257.0      3257.0      3257      3257          0.0  mmap               
+      0.0             3150          2      1575.0      1575.0      1379      1771        277.2  fcntl              
+      0.0             2893          2      1446.5      1446.5      1343      1550        146.4  flockfile          
+      0.0             2521          1      2521.0      2521.0      2521      2521          0.0  dup2               
+      0.0             2278          1      2278.0      2278.0      2278      2278          0.0  fputs              
+      0.0             1968          1      1968.0      1968.0      1968      1968          0.0  pthread_cond_signal
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/cudaapisum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain CUDA trace data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/gpukernsum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain CUDA kernel data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/gpumemtimesum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain GPU memory data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/gpumemsizesum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain GPU memory data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/openmpevtsum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain OpenMP event data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/khrdebugsum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain KHR Extension (KHR_DEBUG) data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/khrdebuggpusum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain GPU KHR Extension (KHR_DEBUG) data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/vulkanmarkerssum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain Vulkan Debug Extension (Vulkan Debug Util) data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/vulkangpumarkersum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain GPU Vulkan Debug Extension (GPU Vulkan Debug markers) data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/dx11pixsum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain DX11 CPU debug markers.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/dx12gpumarkersum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain DX12 GPU debug markers.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/dx12pixsum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain DX12 CPU debug markers.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/wddmqueuesdetails.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain WDDM context data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/unifiedmemory.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain CUDA memory transfers data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/unifiedmemorytotals.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain CUDA memory transfers data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/umcpupagefaults.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [prof_data_filetask102_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/openaccsum.py]... 
+SKIPPED: prof_data_filetask102_.sqlite does not contain OpenACC event data.
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28310200: <Task10prof2> in cluster <dcc> Done
+
+Job <Task10prof2> was submitted from host <hpclogin1> by user <s224353> in cluster <dcc> at Tue Apr 28 09:35:08 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s224353> in cluster <dcc> at Tue Apr 28 09:35:10 2026
+</zhome/5f/c/186820> was used as the home directory.
+</zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src> was used as the working directory.
+Started at Tue Apr 28 09:35:10 2026
+Terminated at Tue Apr 28 09:35:15 2026
+Results reported at Tue Apr 28 09:35:15 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task10prof2
+#BSUB -q c02613
+#BSUB -W 30
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -o Task10prof2_time_%J.out
+#BSUB -e Task10prof2_time_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+#nsys profile --force-overwrite true -o prof_data_filetask10_ python Task9.py 4
+nsys profile --force-overwrite true --wait=all -o prof_data_filetask102_ python Task10.py 4
+nsys stats prof_data_filetask102_.nsys-rep 
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1.25 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     800.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   5 sec.
+    Turnaround time :                            7 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <Task10prof2_time_28310200.err> for stderr output of this job.
+

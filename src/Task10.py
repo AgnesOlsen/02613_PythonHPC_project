@@ -12,18 +12,32 @@ def load_data(load_dir, bid):
     return u, interior_mask
 
 
-def jacobi(u, interior_mask, max_iter, atol=1e-6):
+def jacobi(u, interior_mask, max_iter, atol=1e-6, check_every=100):
     u = cp.copy(u)
 
-    for i in range(max_iter):
-        # Compute average of left, right, up and down neighbors, see eq. (1)
-        u_new = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
-        u_new_interior = u_new[interior_mask]
-        delta = cp.abs(u[1:-1, 1:-1][interior_mask] - u_new_interior).max()
-        u[1:-1, 1:-1][interior_mask] = u_new_interior
+    # Pre-allocate once (important for performance)
+    u_inner = u[1:-1, 1:-1]
+    u_new = cp.empty_like(u_inner)
 
-        if delta < atol:
-            break
+    for i in range(max_iter):
+        u_new[:] = 0.25 * (
+            u[1:-1, :-2] +
+            u[1:-1, 2:] +
+            u[:-2, 1:-1] +
+            u[2:, 1:-1]
+        )
+
+        # Apply mask (GPU)
+        u_inner[interior_mask] = u_new[interior_mask]
+
+        # Convergence check (reduced frequency)
+        if i % check_every == 0:
+            delta = cp.abs(u_inner[interior_mask] - u_new[interior_mask]).max()
+
+            # Only here we sync (via float conversion)
+            if float(delta) < atol:
+                break
+
     return u
 
 
@@ -76,3 +90,4 @@ if __name__ == '__main__':
     for bid, u, interior_mask in zip(building_ids, all_u, all_interior_mask):
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
+
