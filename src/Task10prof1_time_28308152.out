@@ -1,0 +1,148 @@
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/nvtxsum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain NV Tools Extension (NVTX) data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/osrtsum.py]... 
+
+ ** OS Runtime Summary (osrtsum):
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)    Med (ns)   Min (ns)  Max (ns)  StdDev (ns)         Name        
+ --------  ---------------  ---------  ----------  ----------  --------  --------  -----------  -------------------
+     58.0        435737611      99720      4369.6      4200.0      3427    153239        901.8  backtrace          
+     31.7        237628230        523    454356.1    420806.0      1506    895169     112911.7  open64             
+      7.3         54824394          2  27412197.0  27412197.0   3808406  51015988   33380801.4  poll               
+      1.4         10835670        713     15197.3      4485.0      1054    304236      31933.0  read               
+      0.9          6541541          9    726837.9    188053.0      7925   1908807     805269.1  fread              
+      0.2          1467133       1049      1398.6      1104.0      1023    260562       8022.6  fclose             
+      0.2          1186032          7    169433.1      2792.0      2251    780090     303086.2  fopen64            
+      0.1           920684        253      3639.1      1210.0      1001     31022       4236.4  fgets              
+      0.1           920263        110      8366.0      5639.5      4931    266039      24833.4  munmap             
+      0.1           432489        127      3405.4      2284.0      1776     17354       3050.4  mmap64             
+      0.0           124629         26      4793.4      3939.5      1018     24676       5326.7  pthread_cond_signal
+      0.0            83960          1     83960.0     83960.0     83960     83960          0.0  waitpid            
+      0.0            23220          3      7740.0      5512.0      3820     13888       5391.1  pipe2              
+      0.0            16506          9      1834.0      1594.0      1118      3307        636.3  fcntl              
+      0.0             8263          1      8263.0      8263.0      8263      8263          0.0  fflush             
+      0.0             7663          4      1915.8      1932.5      1068      2730        916.1  sigaction          
+      0.0             7564          2      3782.0      3782.0      1892      5672       2672.9  flockfile          
+      0.0             6871          1      6871.0      6871.0      6871      6871          0.0  write              
+      0.0             5492          1      5492.0      5492.0      5492      5492          0.0  mmap               
+      0.0             4191          2      2095.5      2095.5      1058      3133       1467.2  dup2               
+      0.0             3482          1      3482.0      3482.0      3482      3482          0.0  fputs              
+      0.0             2854          2      1427.0      1427.0      1022      1832        572.8  ioctl              
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/cudaapisum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain CUDA trace data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/gpukernsum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain CUDA kernel data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/gpumemtimesum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain GPU memory data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/gpumemsizesum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain GPU memory data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/openmpevtsum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain OpenMP event data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/khrdebugsum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain KHR Extension (KHR_DEBUG) data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/khrdebuggpusum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain GPU KHR Extension (KHR_DEBUG) data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/vulkanmarkerssum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain Vulkan Debug Extension (Vulkan Debug Util) data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/vulkangpumarkersum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain GPU Vulkan Debug Extension (GPU Vulkan Debug markers) data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/dx11pixsum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain DX11 CPU debug markers.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/dx12gpumarkersum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain DX12 GPU debug markers.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/dx12pixsum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain DX12 CPU debug markers.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/wddmqueuesdetails.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain WDDM context data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/unifiedmemory.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain CUDA memory transfers data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/unifiedmemorytotals.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain CUDA memory transfers data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/umcpupagefaults.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain CUDA Unified Memory CPU page faults data.
+
+Processing [prof_data_filetask10_.sqlite] with [/appl/cuda/11.8.0/nsight-systems-2022.4.2/host-linux-x64/reports/openaccsum.py]... 
+SKIPPED: prof_data_filetask10_.sqlite does not contain OpenACC event data.
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28308152: <Task10prof1> in cluster <dcc> Exited
+
+Job <Task10prof1> was submitted from host <n-62-27-18> by user <s224353> in cluster <dcc> at Mon Apr 27 22:47:53 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s224353> in cluster <dcc> at Mon Apr 27 22:47:55 2026
+</zhome/5f/c/186820> was used as the home directory.
+</zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src> was used as the working directory.
+Started at Mon Apr 27 22:47:55 2026
+Terminated at Mon Apr 27 22:48:03 2026
+Results reported at Mon Apr 27 22:48:03 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task10prof1
+#BSUB -q c02613
+#BSUB -W 30
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -o Task10prof1_time_%J.out
+#BSUB -e Task10prof1_time_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+#nsys profile --force-overwrite true -o prof_data_filetask10_ python Task9.py 4
+nsys profile --force-overwrite true --wait=all -o prof_data_filetask10_ python Task9.py 4
+sleep 2
+nsys stats prof_data_filetask10_.nsys-rep 
+
+
+------------------------------------------------------------
+
+TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
+Exited with signal termination: 25.
+
+Resource usage summary:
+
+    CPU time :                                   1.50 sec.
+    Max Memory :                                 800 MB
+    Average Memory :                             -
+    Total Requested Memory :                     800.00 MB
+    Delta Memory :                               0.00 MB
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   8 sec.
+    Turnaround time :                            10 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <Task10prof1_time_28308152.err> for stderr output of this job.
+
