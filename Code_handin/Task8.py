@@ -16,10 +16,10 @@ def load_data(load_dir, bid):
 
 @cuda.jit
 def jacobi_cuda_kernel(u, u_new, interior_mask):
+    # Create grid
     i, j = cuda.grid(2)
-    if 1 <= i < u.shape[0] - 1 and 1 <= j < u.shape[1] - 1:
-        # Do it only for the mask
-        if interior_mask[i-1,j-1]:
+    if 1 <= i < u.shape[0] - 1 and 1 <= j < u.shape[1] - 1: # Make sure that we are not out of bounds
+        if interior_mask[i-1,j-1]: # Do it only for the mask
             u_new[i, j] = 0.25 * (
                     u[i, j - 1] +  
                     u[i, j + 1] +  
@@ -30,18 +30,24 @@ def jacobi_cuda_kernel(u, u_new, interior_mask):
             u_new[i, j] = u[i, j] 
 
 def jacobi_helper(u,interior_mask,iter):
+
+    # define tpb and bpg
     tpb = (32,32)
     bpg = (u.shape[0]// tpb[0], 
            u.shape[1] // tpb[1])
 
+    # copy to GPU
     d_u = cuda.to_device(u)
     d_u_new = cuda.device_array_like(d_u)
     d_mask = cuda.to_device(interior_mask)
+
+    # Do iterations
     for i in range(iter):
         jacobi_cuda_kernel[bpg, tpb](d_u, d_u_new, d_mask)
         d_u, d_u_new = d_u_new, d_u
     
-    return d_u.copy_to_host()
+
+    return d_u.copy_to_host() 
 
 def summary_stats(u, interior_mask):
     u_interior = u[1:-1, 1:-1][interior_mask]
@@ -56,13 +62,14 @@ def summary_stats(u, interior_mask):
         'pct_below_15': pct_below_15,
     }
 
-#### Have to comopile kernel 1 time before timing - so we need to load building ID's etc to test. 
+#### Have to compile kernel 1 time before timing - so we need to load building ID's etc to compile 
 
 LOAD_DIR = '/dtu/projects/02613_2025/data/modified_swiss_dwellings/'
 with open(join(LOAD_DIR, 'building_ids.txt'), 'r') as f:
     building_ids = f.read().splitlines()
 building_ids = building_ids[:1]
 
+# Load only one floor plan
 all_u0 = np.empty((1, 514, 514))
 all_interior_mask = np.empty((1, 512, 512), dtype='bool')
 for i, bid in enumerate(building_ids):
@@ -116,4 +123,14 @@ if __name__ == '__main__':
     for bid, u, interior_mask in zip(building_ids, all_u, all_interior_mask):
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
-    
+
+# Plot first 4 to make sure that functions are correct
+fig, axs = plt.subplots(1, 4, figsize=(16, 6), constrained_layout=True)
+
+for i in range(4):
+    axs[i].imshow(all_u[i])
+    axs[i].set_title(f"Building {building_ids[i]}\nSimulation Results", fontsize=10, pad=6)
+    axs[i].axis("off")
+fig.suptitle("Visualization of First Four Buildings", fontsize=14)
+path_save = join('figures',"Task8_evn2026.png")
+plt.savefig(path_save,dpi=300, bbox_inches="tight")

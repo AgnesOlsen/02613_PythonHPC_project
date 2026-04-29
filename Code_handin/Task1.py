@@ -30,7 +30,7 @@ for i, bid in enumerate(building_ids):
     all_u0[i] = u0
     all_interior_mask[i] = interior_mask
 
-
+# Plot the 4 first floor plans along with their interior masks
 fig, axs = plt.subplots(2, 4, figsize=(16, 6), constrained_layout=True)
 
 for i in range(4):

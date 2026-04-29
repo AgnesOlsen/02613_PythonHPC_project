@@ -48,6 +48,7 @@ def summary_stats(u, interior_mask):
 
 ############
 
+# We define helper function we need when doing the parallel computations
 def processed(building_ids, LOAD_DIR):
     MAX_ITER = 20_000
     ABS_TOL = 1e-4
@@ -67,10 +68,13 @@ def processed(building_ids, LOAD_DIR):
 
 
 def parallelized_computations(building_ids, num_processes, LOAD_DIR):
+    # Find chunck size
     chunk_size = len(building_ids)//num_processes 
+    # Find the modulo and distribute evenly to workers
     modulo = len(building_ids) % num_processes
     chunk_sizes = [chunk_size + 1 for i in range(modulo)] + [chunk_size for i in range(num_processes-modulo)] # Adding remainder
     index_building_ids= np.cumsum(chunk_sizes)
+    # Process the chuncks
     pool = multiprocessing.Pool(num_processes)
     result = [pool.apply_async(processed, 
                                (building_ids[index_building_ids[i]-chunk_sizes[i]:index_building_ids[i]], LOAD_DIR)) 
@@ -96,6 +100,7 @@ if __name__ == '__main__':
         N = int(sys.argv[1])
     building_ids = building_ids[:N]
 
+    # Define the number of workers we want to time for
     num_processes = [1,4,8,12,16,20,24,28,32]
     time_list = []
 
@@ -115,6 +120,7 @@ if __name__ == '__main__':
         time_end = time()
         time_list.append([num, time_end-time_start])
 
+    # Save the timings
     np.save("stats/static_time_50_1to16_evn26.npy", time_list)
 
 

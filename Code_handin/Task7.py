@@ -23,11 +23,13 @@ def jacobi(u, interior_mask, max_iter, atol=1e-6):
         for i in range(u_new.shape[0]): # går gennem alle rækkerne
             for j in range(u_new.shape[1]): # går gennem hvert element i rækkerne
                 if interior_mask[i-1,j-1]:
+                    # regner updateringen til u
                     u_new[i, j] = 0.25 * (
                     u[i, j - 1] +  
                     u[i, j + 1] +  
                     u[i - 1, j] +  
                     u[i + 1, j]    )
+                    # Finder største delta
                     delta = abs(u[i,j] - u_new[i,j])
                     max_delta = max(max_delta,delta)
 
@@ -52,13 +54,14 @@ def summary_stats(u, interior_mask):
     }
 
 
-#### Have to comopile kernel 1 time before timing - so we need to load building ID's etc to test. 
+#### Have to compile kernel 1 time before timing - so we need to load building ID's etc to run it
 
 LOAD_DIR = '/dtu/projects/02613_2025/data/modified_swiss_dwellings/'
 with open(join(LOAD_DIR, 'building_ids.txt'), 'r') as f:
     building_ids = f.read().splitlines()
 building_ids = building_ids[:1]
 
+# Load just one building for compiling
 all_u0 = np.empty((1, 514, 514))
 all_interior_mask = np.empty((1, 512, 512), dtype='bool')
 for i, bid in enumerate(building_ids):
@@ -99,6 +102,7 @@ if __name__ == '__main__':
     # Run jacobi iterations for each floor plan
     MAX_ITER = 20_000
     ABS_TOL = 1e-4
+    # Start timing
     start_time = time.time()
     all_u = np.empty_like(all_u0)
     for i, (u0, interior_mask) in enumerate(zip(all_u0, all_interior_mask)):
@@ -113,6 +117,7 @@ if __name__ == '__main__':
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
 
+# Plot first 4 to make sure that functions are correct
 fig, axs = plt.subplots(1, 4, figsize=(16, 6), constrained_layout=True)
 
 for i in range(4):

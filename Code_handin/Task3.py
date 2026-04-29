@@ -78,6 +78,7 @@ if __name__ == '__main__':
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
 
+# Plot the solution to the first four floorplans
 fig, axs = plt.subplots(1, 4, figsize=(16, 6), constrained_layout=True)
 
 for i in range(4):

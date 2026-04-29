@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-# RUN from. src file
+
 # From outputfile from Submitfile_task2.py
 buildings = np.array([10,12,14,16,18,20])
 time_real = np.array([93.554,131.243,169.798,175.258,193.382,235.857])

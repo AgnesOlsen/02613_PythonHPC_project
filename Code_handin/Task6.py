@@ -45,6 +45,7 @@ def summary_stats(u, interior_mask):
 
 ############
 
+# Define the helper function to utilize with multiple workers
 def processed(building_ids, LOAD_DIR):
     MAX_ITER = 20_000
     ABS_TOL = 1e-4
@@ -63,6 +64,8 @@ def processed(building_ids, LOAD_DIR):
     return all_u0, all_interior_mask, all_u
 
 def parallelized_computations(building_ids, num_processes, LOAD_DIR):
+
+    # Create lots of small chunks that is then allocated dynamically
     chunk_size = 1
     N = len(building_ids)//chunk_size + 1
 
@@ -91,6 +94,8 @@ if __name__ == '__main__':
         N = int(sys.argv[1])
     building_ids = building_ids[:N]
 
+    # The number of workers for the timings
+    
     num_processes = [1,4,8,12,16,20,24,28,32]
     time_list = []
     for num in num_processes:

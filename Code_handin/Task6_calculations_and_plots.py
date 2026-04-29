@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-# Load data from Task5
+# Load data from Task6
 numpy_load  = np.load("/zhome/4f/c/186668/Desktop/02613_HPC/02613_PythonHPC_project/stats/dynamic_time_20_evn26.npy")
 processes = numpy_load[:,0]
 times = numpy_load[:,1]
@@ -16,6 +16,7 @@ for i in range(len(F)):
     speedup_ahmdahl.append(speedup_a)
 
 print("max speedup at 30 coures", speedup_ahmdahl[-1][-2])
+
 plt.figure(figsize=(8, 6))
 plt.plot(processes, speedup, marker = 'o', label = "Speed-up")
 for i in range(len(F)):
@@ -31,9 +32,8 @@ save_path = os.path.join('..', 'figures', figure_name)
 plt.savefig(save_path)
 
 
-## Best speed-up at 6.7 with 16 cores 
 
 #### Time it takes to process all the floor plans using best parallelization
 # Must be found by dividing our estimate for T(1) for all floorplans, see overleaf, by the speed up we have. 
 print("speedup at 28 cores", speedup[-2])
-print("How much time it would take using 16 cores:", 51149.49/speedup[-2]) # This is 2.3 hours, so better with dynamic
+print("How much time it would take using 28 cores:", 51149.49/speedup[-2]) 
