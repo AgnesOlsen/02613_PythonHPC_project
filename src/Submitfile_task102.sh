@@ -14,9 +14,9 @@
 source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate 02613_2026
 
-python Task10.py 10
-python Task10.py 12
-python Task10.py 14
-python Task10.py 16
-python Task10.py 18
-python Task10.py 20
+python src/Task10.py 10
+#python Task10.py 12
+#python Task10.py 14
+#python Task10.py 16
+#python Task10.py 18
+#python Task10.py 20

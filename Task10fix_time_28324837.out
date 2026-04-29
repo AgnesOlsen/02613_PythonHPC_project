@@ -1,0 +1,77 @@
+timing: 0.38880228996276855
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 0.44650283895699977, 1.8493456566776005, 0.016274275794727133, 99.98372572420527
+10009, 0.28322570107548495, 1.4545611877774909, 0.006282038395818675, 99.99371796160418
+10014, 0.35663209218053377, 1.8869378120954214, 0.027483153844587854, 99.97251684615541
+10019, 0.35613828953927223, 1.8814919923922513, 0.024414807580797754, 99.9755851924192
+10029, 0.3952083253916822, 1.6142605787073234, 0.015247970113978576, 99.98475202988602
+10031, 0.365391980673482, 1.8289402849895664, 0.013257519959932828, 99.98674248004006
+10051, 0.8008070736007051, 2.748036470066712, 0.08814455707360071, 99.9118554429264
+10053, 0.38282902856135403, 1.6056804503398998, 0.011019040902679831, 99.98898095909732
+10056, 0.8479777225045961, 2.8582757147710565, 0.09372409069608162, 99.90627590930391
+10064, 0.2749978116885011, 1.329729524159653, 0.008753245995389956, 99.99124675400462
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28324837: <Task10fix_time> in cluster <dcc> Done
+
+Job <Task10fix_time> was submitted from host <n-62-30-7> by user <s235058> in cluster <dcc> at Wed Apr 29 11:40:13 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s235058> in cluster <dcc> at Wed Apr 29 11:41:07 2026
+</zhome/10/4/206201> was used as the home directory.
+</zhome/10/4/206201/02613PyHPC/02613_PythonHPC_project> was used as the working directory.
+Started at Wed Apr 29 11:41:07 2026
+Terminated at Wed Apr 29 11:41:11 2026
+Results reported at Wed Apr 29 11:41:11 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task10fix_time
+#BSUB -q c02613
+#BSUB -W 30
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -o Task10fix_time_%J.out
+#BSUB -e Task10fix_time_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+python src/Task10.py 10
+#python Task10.py 12
+#python Task10.py 14
+#python Task10.py 16
+#python Task10.py 18
+#python Task10.py 20
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   1.98 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     800.00 MB
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   4 sec.
+    Turnaround time :                            58 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <Task10fix_time_28324837.err> for stderr output of this job.
+

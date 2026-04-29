@@ -15,7 +15,7 @@ def load_data(load_dir, bid):
     return u, interior_mask
 
 
-def jacobi(u, interior_mask, max_iter, atol=1e-6, check_every=10000):
+def jacobi(u, interior_mask, max_iter, atol=1e-6):
     u = cp.copy(u)
 
     # Pre-allocate once
@@ -24,16 +24,8 @@ def jacobi(u, interior_mask, max_iter, atol=1e-6, check_every=10000):
 
     for i in range(max_iter):
         u_new[:] = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
-
         # Apply mask (GPU)
         u_inner[interior_mask] = u_new[interior_mask]
-
-        # Convergence check (reduced frequency)
-        if i % check_every == 0:
-            delta = cp.abs(u_inner[interior_mask] - u_new[interior_mask]).max()
-            # Only here we sync (via float conversion)
-            if float(delta) < atol:
-                break
 
     return u
 
@@ -91,9 +83,9 @@ if __name__ == '__main__':
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
 
+
 if False:
     fig, axs = plt.subplots(1, N, figsize=(16, 6), constrained_layout=True)
-
     for i in range(4):
         axs[i].imshow(all_u[i])
         axs[i].set_title(f"Building {building_ids[i]}\nSimulation Results", fontsize=10, pad=6)
