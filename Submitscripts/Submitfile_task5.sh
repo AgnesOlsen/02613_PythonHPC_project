@@ -3,9 +3,9 @@
 #BSUB -J 5016Task5_evn26
 #BSUB -q hpc
 #BSUB -W 120
-#BSUB -R "rusage[mem=400MB]"
+#BSUB -R "rusage[mem=100MB]"
 #BSUB -R "select[model==XeonGold6226R]"
-#BSUB -n 16
+#BSUB -n 32
 #BSUB -R "span[hosts=1]"
 #BSUB -o outputfiles/5016Task5_evn26_%J.out
 #BSUB -e outputfiles/5016Task5_evn26_%J.err

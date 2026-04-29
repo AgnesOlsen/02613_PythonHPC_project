@@ -1,0 +1,115 @@
+Loaded module: cuda/11.8
+Traceback (most recent call last):
+  File "/zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src/Task10.py", line 98, in <module>
+    axs[i].imshow(all_u[i])
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+           ^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 5982, in imshow
+    im.set_data(X)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 685, in set_data
+    self._A = self._normalize_image_array(A)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 646, in _normalize_image_array
+    A = cbook.safe_masked_invalid(A, copy=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/cbook.py", line 684, in safe_masked_invalid
+    x = np.array(x, subok=True, copy=copy)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 1581, in cupy._core.core._ndarray_base.__array__
+TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.
+Traceback (most recent call last):
+  File "/zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src/Task10.py", line 98, in <module>
+    axs[i].imshow(all_u[i])
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+           ^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 5982, in imshow
+    im.set_data(X)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 685, in set_data
+    self._A = self._normalize_image_array(A)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 646, in _normalize_image_array
+    A = cbook.safe_masked_invalid(A, copy=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/cbook.py", line 684, in safe_masked_invalid
+    x = np.array(x, subok=True, copy=copy)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 1581, in cupy._core.core._ndarray_base.__array__
+TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.
+Traceback (most recent call last):
+  File "/zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src/Task10.py", line 98, in <module>
+    axs[i].imshow(all_u[i])
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+           ^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 5982, in imshow
+    im.set_data(X)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 685, in set_data
+    self._A = self._normalize_image_array(A)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 646, in _normalize_image_array
+    A = cbook.safe_masked_invalid(A, copy=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/cbook.py", line 684, in safe_masked_invalid
+    x = np.array(x, subok=True, copy=copy)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 1581, in cupy._core.core._ndarray_base.__array__
+TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.
+Traceback (most recent call last):
+  File "/zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src/Task10.py", line 98, in <module>
+    axs[i].imshow(all_u[i])
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+           ^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 5982, in imshow
+    im.set_data(X)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 685, in set_data
+    self._A = self._normalize_image_array(A)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 646, in _normalize_image_array
+    A = cbook.safe_masked_invalid(A, copy=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/cbook.py", line 684, in safe_masked_invalid
+    x = np.array(x, subok=True, copy=copy)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 1581, in cupy._core.core._ndarray_base.__array__
+TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.
+Traceback (most recent call last):
+  File "/zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src/Task10.py", line 98, in <module>
+    axs[i].imshow(all_u[i])
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+           ^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 5982, in imshow
+    im.set_data(X)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 685, in set_data
+    self._A = self._normalize_image_array(A)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 646, in _normalize_image_array
+    A = cbook.safe_masked_invalid(A, copy=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/cbook.py", line 684, in safe_masked_invalid
+    x = np.array(x, subok=True, copy=copy)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 1581, in cupy._core.core._ndarray_base.__array__
+TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.
+Traceback (most recent call last):
+  File "/zhome/5f/c/186820/Desktop/02613hpc/02613_PythonHPC_project/src/Task10.py", line 98, in <module>
+    axs[i].imshow(all_u[i])
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/__init__.py", line 1524, in inner
+    return func(
+           ^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/axes/_axes.py", line 5982, in imshow
+    im.set_data(X)
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 685, in set_data
+    self._A = self._normalize_image_array(A)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/image.py", line 646, in _normalize_image_array
+    A = cbook.safe_masked_invalid(A, copy=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dtu/projects/02613_2025/conda/miniconda3/envs/02613_2026/lib/python3.12/site-packages/matplotlib/cbook.py", line 684, in safe_masked_invalid
+    x = np.array(x, subok=True, copy=copy)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cupy/_core/core.pyx", line 1581, in cupy._core.core._ndarray_base.__array__
+TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.
