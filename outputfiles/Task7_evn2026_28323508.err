@@ -1,0 +1,24 @@
+  File "/zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/src/Task7.py", line 73
+    u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
+    ^
+IndentationError: expected an indented block after 'if' statement on line 72
+  File "/zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/src/Task7.py", line 73
+    u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
+    ^
+IndentationError: expected an indented block after 'if' statement on line 72
+  File "/zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/src/Task7.py", line 73
+    u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
+    ^
+IndentationError: expected an indented block after 'if' statement on line 72
+  File "/zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/src/Task7.py", line 73
+    u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
+    ^
+IndentationError: expected an indented block after 'if' statement on line 72
+  File "/zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/src/Task7.py", line 73
+    u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
+    ^
+IndentationError: expected an indented block after 'if' statement on line 72
+  File "/zhome/d9/a/186845/Documents/HPC_02613/Project/02613_PythonHPC_project/src/Task7.py", line 73
+    u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
+    ^
+IndentationError: expected an indented block after 'if' statement on line 72
