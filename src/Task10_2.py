@@ -15,7 +15,7 @@ def load_data(load_dir, bid):
     return u, interior_mask
 
 
-def jacobi(u, interior_mask, max_iter, atol=1e-6):
+def jacobi(u, interior_mask, max_iter):
     u = cp.copy(u)
 
     # Pre-allocate once
@@ -65,7 +65,7 @@ if __name__ == '__main__':
         all_interior_mask[i] = interior_mask
 
     # Run jacobi iterations for each floor plan
-    MAX_ITER = 20_000
+    MAX_ITER = 10000 #20_000
     ABS_TOL = 1e-4
 
     t_start=time()

@@ -8,12 +8,13 @@ times = numpy_load[:,1]
 speedup = times[0]/times 
 
 # Ahmdals law - we play with fraction F.
-F = np.array([0.8,0.82,0.84,0.86,0.88,0.9] )
+F = np.array([0.84,0.86,0.88,0.9,0.907] )
 speedup_ahmdahl = []
 for i in range(len(F)):
     speedup_a = 1/((1-F[i])+F[i]/processes)
     speedup_ahmdahl.append(speedup_a)
 
+print("last element in list:", speedup_ahmdahl[-1][-1])
 
 plt.figure(figsize=(8, 6))
 plt.plot(processes, speedup, marker = 'o', label = "Speed-up")
@@ -26,15 +27,30 @@ plt.legend()
 plt.grid(True, linestyle='--', alpha=0.6)
 
 figure_name='Task_5_estimationofparallelfraction_32s_evn26.png' # ændre navn for kun speedup plot
+#figure_name='Task_5_speedup_32s_evn26.png'
 save_path = os.path.join('..', 'figures', figure_name)
 plt.savefig(save_path)
 
 #### Theoretical speed up - We use S(oo)=1/(1-F), can only be found after F is found
-para_fraction = 0.84 # chosen from the plot
+para_fraction = 0.88 # chosen from the plot
 theo_speed = 1/(1-para_fraction)
-print(f"Theoretical speedup: {theo_speed}")
+print(f"Theoretical speedup using F:0.88: {theo_speed}")
+
+#### Theoretical speed up - We use S(oo)=1/(1-F), can only be found after F is found
+para_fraction = 0.907 # chosen from the plot
+theo_speed = 1/(1-para_fraction)
+print(f"Theoretical speedup using F:0.907: {theo_speed}")
+## We reach 4.8 ish speed up at 14 cores. 
 ## We reach 4.8 ish speed up at 14 cores. 
 
 #### Time it takes to process all the floor plans using best parallelization
 # Must be found by dividing our estimate for T(1) for all floorplans, see overleaf, by the speed up we have. 
-print("How much time it would take using 14 cores:", 56681.07/speedup[7]) # This 3,27 hours 
+
+print("speedup 32", speedup[-1])
+print("speedup 28,",speedup[-2])
+print("How much time it would take using 32 cores:", 51149.49/speedup[-1]) # This 3,27 hours 
+
+
+print("How much time it would take using 28 cores:", 51149.49/speedup[-2]) # This 3,27 hours 
+
+
