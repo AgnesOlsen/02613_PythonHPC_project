@@ -6,20 +6,18 @@ import os
 # RUN from. src file
 # From errorfile Tast Task2_29094101
 buildings = np.array([10,12,14,16,18,20])
-time_real = np.array([
-    11.441582202911377,
-    13.65561032295227,
-    14.53552770614624,
-    15.15862226486206,
-    17.12391686439514,
-    19.195929765701294
-])
+#time_real = np.array([29.209, 27.642, 34.123, 37.989, 43.338, 49.831]) #hele
+time_real = np.array([19.573, 26.735, 33.981,36.682,43.516,48.558]) #dele
 
-
+#Degree 1 = linear fit
+#slope, intercept = np.polyfit(buildings, time_real, 1)
+#trendline = slope * buildings + intercept
 
 # Linear fit with intercept = 0
 slope = np.dot(buildings, time_real) / np.dot(buildings, buildings)
+
 trendline = slope * buildings
+
 
 #Plot
 plt.figure(figsize=(8, 6))
@@ -33,10 +31,9 @@ plt.grid(True, linestyle='--', alpha=0.6)
 
 # 5. Save the image
 # You can change the filename here. 'dpi' makes it look sharper.
-figure_name='linear_regression_5points_task10.png'
+figure_name='linear_regression_5points_task9new.png'
 save_path = os.path.join('..', 'figures', figure_name)
 plt.savefig(save_path)
 
 print(f"Plot saved successfully as '{figure_name}'")
-print(f"Regression Equation: Time = {slope:.2f} * Buildings")
-print("Value at x=0:", slope * 0)
+print(f"Regression Equation: Time = {slope:.2f} * Buildings )")
