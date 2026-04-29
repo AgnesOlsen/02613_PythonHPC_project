@@ -1,6 +1,7 @@
 from os.path import join
 import sys
 import cupy as cp
+from time import time
 
 
 
@@ -65,10 +66,13 @@ if __name__ == '__main__':
     MAX_ITER = 20_000
     ABS_TOL = 1e-4
 
+    t_start=time()
     all_u = cp.empty_like(all_u0)
     for i, (u0, interior_mask) in enumerate(zip(all_u0, all_interior_mask)):
         u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
         all_u[i] = u
+    timing=time()-t_start
+    print("timing:",timing)
 
     # Print summary statistics in CSV format
     stat_keys = ['mean_temp', 'std_temp', 'pct_above_18', 'pct_below_15']

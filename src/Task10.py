@@ -1,7 +1,10 @@
 from os.path import join
 import sys
 import cupy as cp
-import numpy as cp
+from time import time
+import numpy as np
+import matplotlib.pyplot as plt
+
 
 
 def load_data(load_dir, bid):
@@ -15,17 +18,12 @@ def load_data(load_dir, bid):
 def jacobi(u, interior_mask, max_iter, atol=1e-6, check_every=100):
     u = cp.copy(u)
 
-    # Pre-allocate once (important for performance)
+    # Pre-allocate once
     u_inner = u[1:-1, 1:-1]
     u_new = cp.empty_like(u_inner)
 
     for i in range(max_iter):
-        u_new[:] = 0.25 * (
-            u[1:-1, :-2] +
-            u[1:-1, 2:] +
-            u[:-2, 1:-1] +
-            u[2:, 1:-1]
-        )
+        u_new[:] = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
 
         # Apply mask (GPU)
         u_inner[interior_mask] = u_new[interior_mask]
@@ -37,6 +35,8 @@ def jacobi(u, interior_mask, max_iter, atol=1e-6, check_every=100):
             # Only here we sync (via float conversion)
             if float(delta) < atol:
                 break
+        # Convergence check (rare + correct)
+        if i % check_every == 0:
 
     return u
 
@@ -79,10 +79,13 @@ if __name__ == '__main__':
     MAX_ITER = 20_000
     ABS_TOL = 1e-4
 
+    t_start=time()
     all_u = cp.empty_like(all_u0)
     for i, (u0, interior_mask) in enumerate(zip(all_u0, all_interior_mask)):
         u = jacobi(u0, interior_mask, MAX_ITER, ABS_TOL)
         all_u[i] = u
+    timing=time()-t_start
+    print("timing:",timing)
 
     # Print summary statistics in CSV format
     stat_keys = ['mean_temp', 'std_temp', 'pct_above_18', 'pct_below_15']
@@ -91,3 +94,12 @@ if __name__ == '__main__':
         stats = summary_stats(u, interior_mask)
         print(f"{bid},", ", ".join(str(stats[k]) for k in stat_keys))
 
+fig, axs = plt.subplots(1, N, figsize=(16, 6), constrained_layout=True)
+
+for i in range(4):
+    axs[i].imshow(all_u[i])
+    axs[i].set_title(f"Building {building_ids[i]}\nSimulation Results", fontsize=10, pad=6)
+    axs[i].axis("off")
+fig.suptitle("Visualization of First Four Buildings", fontsize=14)
+path_save = join('figures',"Task10_evn2026.png")
+plt.savefig(path_save,dpi=300, bbox_inches="tight")
