@@ -19,7 +19,6 @@ def jacobi(u, interior_mask, max_iter, atol=1e-6):
     u = np.copy(u)
     u_new = np.copy(u)
     for _ in range(max_iter):
-        # Compute average of left, right, up and down neighbors, see eq. (1)
         max_delta = 0
         for i in range(u_new.shape[0]): # går gennem alle rækkerne
             for j in range(u_new.shape[1]): # går gennem hvert element i rækkerne

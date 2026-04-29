@@ -17,7 +17,6 @@ def load_data(load_dir, bid):
 @cuda.jit
 def jacobi_cuda_kernel(u, u_new, interior_mask):
     i, j = cuda.grid(2)
-    # Interior indices
     if 1 <= i < u.shape[0] - 1 and 1 <= j < u.shape[1] - 1:
         # Do it only for the mask
         if interior_mask[i-1,j-1]:
