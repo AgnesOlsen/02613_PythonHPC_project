@@ -25,15 +25,18 @@ def jacobi(u, interior_mask, max_iter, atol=1e-6, check_every=10000):
     for i in range(max_iter):
         u_new[:] = 0.25 * (u[1:-1, :-2] + u[1:-1, 2:] + u[:-2, 1:-1] + u[2:, 1:-1])
 
-        # Apply mask (GPU)
-        u_inner[interior_mask] = u_new[interior_mask]
-
         # Convergence check (reduced frequency)
         if i % check_every == 0:
             delta = cp.abs(u_inner[interior_mask] - u_new[interior_mask]).max()
             # Only here we sync (via float conversion)
             if float(delta) < atol:
                 break
+
+        # Apply mask (GPU)
+        #u_inner[interior_mask] = u_new[interior_mask]
+
+        # With this (dense element-wise operation):
+        u[1:-1, 1:-1] = cp.where(interior_mask, u_new, u_inner)
 
     return u
 

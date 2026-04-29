@@ -9,17 +9,17 @@ speedup = times[0]/times
 print(speedup)
 
 # Ahmdals law - we play with fraction F.
-#F = np.array([0.8,0.82,0.84,0.86,0.88,0.9] )
-#speedup_ahmdahl = []
-#for i in range(len(F)):
-    #speedup_a = 1/((1-F[i])+F[i]/processes)
-    #speedup_ahmdahl.append(speedup_a)
+F = np.array([0.88,0.9, 0.92] )
+speedup_ahmdahl = []
+for i in range(len(F)):
+    speedup_a = 1/((1-F[i])+F[i]/processes)
+    speedup_ahmdahl.append(speedup_a)
 
-
+print("max speedup at 30 coures", speedup_ahmdahl[-1][-2])
 plt.figure(figsize=(8, 6))
 plt.plot(processes, speedup, marker = 'o', label = "Speed-up")
-#for i in range(len(F)):
-    #plt.plot(processes, speedup_ahmdahl[i], label = f"Fit using parallel fraction: {F[i]}") # Udkommenter dette for kun speed-up plot.
+for i in range(len(F)):
+    plt.plot(processes, speedup_ahmdahl[i], label = f"Fit using parallel fraction: {F[i]}") # Udkommenter dette for kun speed-up plot.
 plt.xlabel('Number of Workers')
 plt.ylabel('Speed-up')
 plt.title('Speedup vs Workers')
@@ -35,4 +35,5 @@ plt.savefig(save_path)
 
 #### Time it takes to process all the floor plans using best parallelization
 # Must be found by dividing our estimate for T(1) for all floorplans, see overleaf, by the speed up we have. 
-print("How much time it would take using 16 cores:", 56681.07/speedup[-1]) # This is 2.3 hours, so better with dynamic
+print("speedup at 28 cores", speedup[-2])
+print("How much time it would take using 16 cores:", 51149.49/speedup[-2]) # This is 2.3 hours, so better with dynamic
