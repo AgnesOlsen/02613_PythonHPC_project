@@ -10,13 +10,19 @@ buildings = np.array([10,12,14,16,18,20])
 time_real = np.array([19.573, 26.735, 33.981,36.682,43.516,48.558]) #dele
 
 #Degree 1 = linear fit
-slope, intercept = np.polyfit(buildings, time_real, 1)
-trendline = slope * buildings + intercept
+#slope, intercept = np.polyfit(buildings, time_real, 1)
+#trendline = slope * buildings + intercept
+
+# Linear fit with intercept = 0
+slope = np.dot(buildings, time_real) / np.dot(buildings, buildings)
+
+trendline = slope * buildings
+
 
 #Plot
 plt.figure(figsize=(8, 6))
 plt.scatter(buildings, time_real, color='blue', label='Actual Data', zorder=5)
-plt.plot(buildings, trendline, color='red', label=f'Linear Fit (y={slope:.2f}x + {intercept:.2f})')
+plt.plot(buildings, trendline, color='red', label=f'Linear Fit (y={slope:.2f}x )')
 plt.xlabel('Number of Buildings')
 plt.ylabel('Time (seconds)')
 plt.title('Time vs Buildings')
@@ -30,4 +36,4 @@ save_path = os.path.join('..', 'figures', figure_name)
 plt.savefig(save_path)
 
 print(f"Plot saved successfully as '{figure_name}'")
-print(f"Regression Equation: Time = {slope:.2f} * Buildings + ({intercept:.2f})")
+print(f"Regression Equation: Time = {slope:.2f} * Buildings )")
