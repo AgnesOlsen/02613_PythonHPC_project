@@ -15,5 +15,5 @@ source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate 02613_2026
 
 
-nsys profile --force-overwrite true -o prof_data_filetask10_ python Task9.py 4
+nsys profile --force-overwrite true -o prof_data_filetask10_ python Task9.py
 nsys stats prof_data_filetask10_.nsys-rep 
