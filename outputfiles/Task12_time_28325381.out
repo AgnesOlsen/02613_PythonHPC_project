@@ -1,0 +1,72 @@
+Time for 10 is 9.857610702514648
+building_id, mean_temp, std_temp, pct_above_18, pct_below_15
+10000, 14.016444682213917, 6.3681568382767075, 30.966330331633575, 55.47538967849264
+10009, 11.01028048638153, 5.80928699600336, 16.69765805608604, 74.93466680068349
+10014, 14.76009423643455, 7.028290843423581, 38.297265935139755, 52.74831538445879
+10019, 14.75219175313747, 7.020491283113654, 38.191880041912086, 52.886542354604735
+10029, 10.622508188742058, 6.312460561811111, 18.25563221896085, 74.51301795448481
+10031, 12.518720991183892, 6.276144595273962, 24.080075420557996, 66.33473764841057
+10051, 13.290568693587785, 5.999000745442376, 25.97693550756574, 62.84890553841633
+10053, 11.374035994690376, 6.259578665135807, 19.957686882933707, 72.38848730606487
+10056, 14.22156228947154, 6.1794045077543185, 31.770664359612127, 57.05454021123968
+10064, 12.72927173526283, 6.964627777016689, 28.854589132358804, 62.675186492768844
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28325381: <Task12_time> in cluster <dcc> Done
+
+Job <Task12_time> was submitted from host <n-62-30-7> by user <s235058> in cluster <dcc> at Wed Apr 29 12:20:53 2026
+Job was executed on host(s) <4*n-62-18-13>, in queue <c02613>, as user <s235058> in cluster <dcc> at Wed Apr 29 12:20:55 2026
+</zhome/10/4/206201> was used as the home directory.
+</zhome/10/4/206201/02613PyHPC/02613_PythonHPC_project> was used as the working directory.
+Started at Wed Apr 29 12:20:55 2026
+Terminated at Wed Apr 29 12:21:10 2026
+Results reported at Wed Apr 29 12:21:10 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task12_time
+#BSUB -q c02613
+#BSUB -W 5
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -o outputfiles/Task12_time_%J.out
+#BSUB -e outputfiles/Task12_time_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+python src/Task12.py 10
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   12.93 sec.
+    Max Memory :                                 193 MB
+    Average Memory :                             193.00 MB
+    Total Requested Memory :                     800.00 MB
+    Delta Memory :                               607.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                11
+    Run time :                                   15 sec.
+    Turnaround time :                            17 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <outputfiles/Task12_time_28325381.err> for stderr output of this job.
+

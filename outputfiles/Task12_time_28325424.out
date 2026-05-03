@@ -1,0 +1,61 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28325424: <Task12_time> in cluster <dcc> Exited
+
+Job <Task12_time> was submitted from host <n-62-12-19> by user <s235058> in cluster <dcc> at Wed Apr 29 12:34:07 2026
+Job was executed on host(s) <4*n-62-12-21>, in queue <gpua100>, as user <s235058> in cluster <dcc> at Wed Apr 29 20:11:32 2026
+</zhome/10/4/206201> was used as the home directory.
+</zhome/10/4/206201/02613PyHPC/02613_PythonHPC_project> was used as the working directory.
+Started at Wed Apr 29 20:11:32 2026
+Terminated at Wed Apr 29 20:11:48 2026
+Results reported at Wed Apr 29 20:11:48 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task12_time
+#BSUB -q gpua100
+#BSUB -W 180
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -o outputfiles/Task12_time_%J.out
+#BSUB -e outputfiles/Task12_time_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+python src/Task12.py 4571
+
+------------------------------------------------------------
+
+TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
+Exited with exit code 137.
+
+Resource usage summary:
+
+    CPU time :                                   5.00 sec.
+    Max Memory :                                 800 MB
+    Average Memory :                             765.00 MB
+    Total Requested Memory :                     800.00 MB
+    Delta Memory :                               0.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                11
+    Run time :                                   16 sec.
+    Turnaround time :                            27461 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <outputfiles/Task12_time_28325424.err> for stderr output of this job.
+

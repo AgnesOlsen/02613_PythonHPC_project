@@ -1,0 +1,62 @@
+Time for 7 is 6.7871387004852295
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@hpc.dtu.dk>
+Subject: Job 28333467: <Task12_time> in cluster <dcc> Done
+
+Job <Task12_time> was submitted from host <n-62-12-19> by user <s235058> in cluster <dcc> at Fri May  1 11:57:56 2026
+Job was executed on host(s) <4*n-62-18-9>, in queue <gpua100>, as user <s235058> in cluster <dcc> at Fri May  1 20:04:36 2026
+</zhome/10/4/206201> was used as the home directory.
+</zhome/10/4/206201/02613PyHPC/02613_PythonHPC_project> was used as the working directory.
+Started at Fri May  1 20:04:36 2026
+Terminated at Fri May  1 20:04:52 2026
+Results reported at Fri May  1 20:04:52 2026
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+#BSUB -J Task12_time
+#BSUB -q gpua100
+#BSUB -W 1
+#BSUB -R "rusage[mem=200MB]"
+#BSUB -gpu "num=1:mode=exclusive_process"
+#BSUB -n 4
+#BSUB -R "span[hosts=1]"
+#BSUB -o outputfiles/Task12_time_%J.out
+#BSUB -e outputfiles/Task12_time_%J.err
+
+# Initialize Python environment
+source /dtu/projects/02613_2025/conda/conda_init.sh
+conda activate 02613_2026
+
+python src/Task12.py 7
+#python src/Task12.py 4571
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   11.00 sec.
+    Max Memory :                                 167 MB
+    Average Memory :                             167.00 MB
+    Total Requested Memory :                     800.00 MB
+    Delta Memory :                               633.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                11
+    Run time :                                   16 sec.
+    Turnaround time :                            29216 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <outputfiles/Task12_time_28333467.err> for stderr output of this job.
+
